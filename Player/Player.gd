@@ -24,7 +24,7 @@ func apply_gravity():
 
 
 func jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor():
 		motion.y -= JUMPSPEED
 
 
@@ -42,12 +42,12 @@ func move():
 func animate():
 	$AnimatedSprite.play("idle")
 	
-	if Input.is_action_pressed("jump"):
+	if motion.y < 0:
 		$AnimatedSprite.play("jump")
-	if Input.is_action_pressed("right"):
+	if motion.x > 0:
 		$AnimatedSprite.set_flip_h(false)
 		$AnimatedSprite.play("walkRight")
-	if Input.is_action_pressed("left"):
+	if motion.x < 0:
 		$AnimatedSprite.set_flip_h(true)
 		$AnimatedSprite.play("walkLeft")
 	
