@@ -8,6 +8,8 @@ const UP = Vector2(0,-1)
 const DOWN = Vector2(0,1)
 const JUMPSPEED = 1600
 
+signal animate
+
 func _physics_process(delta):
 	apply_gravity()
 	jump()
@@ -40,18 +42,4 @@ func move():
 
 
 func animate():
-	$AnimatedSprite.play("idle")
-	
-	if motion.y < 0:
-		$AnimatedSprite.play("jump")
-	if motion.x > 0:
-		$AnimatedSprite.set_flip_h(false)
-		$AnimatedSprite.play("walkRight")
-	if motion.x < 0:
-		$AnimatedSprite.set_flip_h(true)
-		$AnimatedSprite.play("walkLeft")
-	
-	
-	
-	
-	
+	emit_signal("animate", motion)

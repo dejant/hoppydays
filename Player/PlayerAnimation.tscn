@@ -1,0 +1,45 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://GFX/Players/sprites/idle1.png" type="Texture" id=1]
+[ext_resource path="res://GFX/Players/sprites/idle2.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Players/sprites/idle3.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Players/sprites/idle4.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Players/sprites/jump1.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Players/sprites/walk1.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Players/sprites/walk2.png" type="Texture" id=7]
+[ext_resource path="res://GFX/Players/sprites/walk3.png" type="Texture" id=8]
+[ext_resource path="res://GFX/Players/sprites/walk4.png" type="Texture" id=9]
+[ext_resource path="res://GFX/Players/sprites/walk5.png" type="Texture" id=10]
+[ext_resource path="res://GFX/Players/sprites/walk6.png" type="Texture" id=11]
+[ext_resource path="res://Player/PlayerAnimation.gd" type="Script" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walkRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walkLeft",
+"speed": 5.0
+} ]
+
+[node name="PlayerAnimation" type="AnimatedSprite"]
+position = Vector2( 0, -15 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "walkRight"
+frame = 3
+script = ExtResource( 12 )
