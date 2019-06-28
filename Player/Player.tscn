@@ -1,0 +1,57 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Players/sprites/idle1.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Players/sprites/idle2.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Players/sprites/idle3.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Players/sprites/idle4.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Players/sprites/jump1.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Players/sprites/walk1.png" type="Texture" id=7]
+[ext_resource path="res://GFX/Players/sprites/walk2.png" type="Texture" id=8]
+[ext_resource path="res://GFX/Players/sprites/walk3.png" type="Texture" id=9]
+[ext_resource path="res://GFX/Players/sprites/walk4.png" type="Texture" id=10]
+[ext_resource path="res://GFX/Players/sprites/walk5.png" type="Texture" id=11]
+[ext_resource path="res://GFX/Players/sprites/walk6.png" type="Texture" id=12]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 36.3585
+height = 26.1139
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walkRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walkLeft",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 514.23, 295.905 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -15 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "walkRight"
